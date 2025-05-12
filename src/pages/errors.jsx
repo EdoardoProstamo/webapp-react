@@ -1,7 +1,7 @@
 const Error = () => {
 
     return <>
-        <div>Errore! Elemento non trovato.</div>
+        <div>Ops! Elemento non trovato.</div>
     </>
 };
 

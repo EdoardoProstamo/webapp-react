@@ -1,17 +1,41 @@
+import { useEffect, useState } from "react";
+import Box from "../components/box";
+import axios from "axios";
+
 const Movies = () => {
 
-    return <>
-        <h1>Film disponibili</h1>
-        <section>
-            <div className="container">
-                <div className="movies">1</div>
-                <div className="movies">2</div>
-                <div className="movies">3</div>
-                <div className="movies">4</div>
-                <div className="movies">5</div>
-            </div>
-        </section>
-    </>
+    const [movies, setMovies] = useState([]);
+
+    const url = 'http://127.0.0.1:3001/movies';
+
+    function moviesList() {
+
+        axios.get(url)
+            .then(response => { setMovies(response.data) })
+            .catch(err => console.log(err))
+
+    };
+
+    useEffect(moviesList, []);
+
+
+
+
+
+    return (
+        <>
+            <h1>Film disponibili</h1>
+            <section>
+                <div className="container">
+                    {movies.length ? movies.map(movie => (
+                        <div>
+                            <Box />
+                        </div>
+                    )) : <div>Al momento non abbiamo film disponibili</div>}
+                </div>
+            </section>
+        </>
+    )
 };
 
 export default Movies;

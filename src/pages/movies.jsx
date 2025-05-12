@@ -28,8 +28,8 @@ const Movies = () => {
             <section>
                 <div className="container">
                     {movies.length ? movies.map(movie => (
-                        <div>
-                            <Box />
+                        <div key={movie.id}>
+                            <Box data={movie} />
                         </div>
                     )) : <div>Al momento non abbiamo film disponibili</div>}
                 </div>

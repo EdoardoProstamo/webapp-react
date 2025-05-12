@@ -1,12 +1,15 @@
-const Box = () => {
+const Box = ({ data }) => {
+
+    const { id, director, title, abstract } = data;
 
     return <>
         <div className="movies">
             <img src="" alt="" />
             <div className="box">
-                <h5>1</h5>
-                <p>Descrizione</p>
-                <a href="">Link</a>
+                <h5>{title}</h5>
+                <article>{director}</article>
+                <p>{abstract}</p>
+                <a href="">Recensioni</a>
             </div>
         </div>
     </>

@@ -9,13 +9,12 @@ function App() {
 
   return (
     <>
-      Movies
       <BrowserRouter>
         <Routes>
           <Route Component={DefaultLayout} >
             <Route path='/' Component={Movies} />
-            <Route path='/movies/:id' Component={MovieReviews} />
           </Route>
+          <Route path='/movies/:id' Component={MovieReviews} />
           <Route path='*' Component={Error} />
         </Routes>
       </BrowserRouter>

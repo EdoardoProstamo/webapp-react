@@ -1,7 +1,7 @@
 const MovieReviews = () => {
-
+    console.log("sto montando recensioni");
     return <>
-        <div>Movie Reviews</div>
+        <div>Recensioni libro</div>
     </>
 
 };

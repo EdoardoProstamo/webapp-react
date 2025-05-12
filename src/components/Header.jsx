@@ -6,7 +6,7 @@ const Header = () => {
         <nav>
             <ul>
                 <li>
-                    <NavLink to="/">Lista film</NavLink>
+                    <NavLink to="/movies/:id">Recensioni</NavLink>
                 </li>
             </ul>
         </nav>

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Box = ({ data }) => {
 
     const { id, director, title, abstract } = data;
@@ -9,7 +11,7 @@ const Box = ({ data }) => {
                 <h5>{title}</h5>
                 <article>{director}</article>
                 <p>{abstract}</p>
-                <a href="">Recensioni</a>
+                <Link to={`/movies/${id}`}>Recensioni</Link>
             </div>
         </div>
     </>

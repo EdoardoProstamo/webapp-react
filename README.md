@@ -1,6 +1,6 @@
 # DAY-2
 
-## Frontend della Web App.
+## Front-End della Web App.
 
 > MILESTONE 1
 

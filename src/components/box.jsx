@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Box = ({ data }) => {
 
-    const { id, director, title, abstract, imagePath } = data;
+    const { id, director, title, release_year, imagePath } = data;
 
     return <>
         <div className="movies">
@@ -10,7 +10,7 @@ const Box = ({ data }) => {
             <div className="box">
                 <h5>{title}</h5>
                 <article>{director}</article>
-                <p>{abstract}</p>
+                <article>({release_year})</article>
                 <Link to={`/movies/${id}`}>Recensioni</Link>
             </div>
         </div>

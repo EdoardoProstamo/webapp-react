@@ -12,14 +12,12 @@ const Movies = () => {
 
     function moviesList() {
 
-        axios.get(url, { params: { search } })
+        axios.get(url)
             .then(response => { setMovies(response.data) })
             .catch(err => console.log(err))
     };
 
-    function movieSearch(e) {
-
-        e.preventDefault();
+    function movieSearch() {
 
     };
 

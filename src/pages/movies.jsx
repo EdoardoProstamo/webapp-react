@@ -33,19 +33,21 @@ const Movies = () => {
 
     return (
         <>
-            <form onSubmit={movieSearch}>
-                <div>
-                    <input type="text" name="cerca" value={ricerca} onChange={(event) => setRicerca(event.target.value)} />
-                    <button type="submitt">Cerca</button>
-                </div>
-            </form>
+            <div className="search">
+                <h1>Film disponibili</h1>
 
-            <h1>Film disponibili</h1>
+                <form onSubmit={movieSearch}>
+                    <div className="form">
+                        <input type="text" name="cerca" value={ricerca} onChange={(event) => setRicerca(event.target.value)} />
+                        <button type="submitt" className="btn">Cerca</button>
+                    </div>
+                </form>
+            </div>
 
             <section>
                 <div className="container">
                     {movies.length ? movies.map(movie => (
-                        <div key={movie.id}>
+                        <div key={movie.id} className="container-box">
                             <Box data={movie} />
                         </div>
                     )) : <div>Al momento non abbiamo film disponibili</div>}

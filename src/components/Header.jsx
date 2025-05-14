@@ -7,7 +7,7 @@ const Header = () => {
         <nav>
             <ul>
                 <li>
-                    <NavLink to="/">Logo sito</NavLink>
+                    <NavLink to="/">IMDb(oolean)</NavLink>
                 </li>
             </ul>
         </nav>

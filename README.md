@@ -1,6 +1,6 @@
 # DAY-2
 
-## Front-End della Web App.
+## FRONTEND della Web App.
 
 > MILESTONE 1
 
@@ -49,3 +49,14 @@
 
 - Sul backend, iniziamo a realizzare una rotta /movies/:id/reviews per aggiungere una nuova recensione.
 - Può restituire un semplice testo "Rotta per aggiungere una recensione";
+
+
+# DAY-4 (FRONTEND):
+
+- Creiamo un componente che contenga il form per le recensioni
+- Inseriamo questo componente nella pagina di dettaglio del film
+- All’invio del form, la nuova recensione viene salvata sul database e visualizzata nella pagina, in fondo alle altre
+
+> BONUS:
+
+- Provate a creare un nuovo film con upload immagine (multer)!

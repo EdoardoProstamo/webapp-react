@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* background-color: blue; */
+    /* background-color: #000000; */
     text-decoration: none;
 }
 
@@ -11,10 +11,41 @@
 
 nav {
     height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul {
+    list-style: none;
+}
+
+li a {
+    background-color: yellow;
+    color: green;
+    font-size: x-large;
+    border: 2px solid red;
 }
 
 
 /* MAIN */
+
+.search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* .search h1 {
+    color: white;
+} */
+
+.form {
+    margin-right: 30px;
+}
+
+
+
 .img {
     width: 100%;
     height: 300px;
@@ -28,13 +59,21 @@ nav {
     margin: 50px 50px;
 }
 
+/* .container-box {
+    width: 100% / 3;
+} */
+
 .movies {
     width: 200px;
     display: flex;
     flex-direction: column;
     gap: 15px;
+    border: 2px solid red;
 }
 
 /* a {
     color: white;
 } */
+
+
+/* FOOTER */

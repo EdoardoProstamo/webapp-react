@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Recensioni from "../components/reviewsPage";
+import Stars from "../components/starsIcons";
 
 const MovieReviews = () => {
     console.log("sto montando recensioni");
@@ -28,7 +29,10 @@ const MovieReviews = () => {
             <p>{reviews.abstract}</p>
 
             <hr />
-            <h2>Recensioni:</h2>
+            <div>
+                <h2>Recensioni:</h2>
+                <Stars vote={reviews.media_voto_recensioni} />
+            </div>
             {reviews.reviews?.map(review => <Recensioni key={review.id} data={review} />)}
         </div>
     </>

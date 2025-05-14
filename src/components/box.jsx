@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Stars from "./starsIcons";
 
 const Box = ({ data }) => {
 
@@ -12,7 +13,9 @@ const Box = ({ data }) => {
                     <h5>{title}</h5>
                     <article>{director}</article>
                     <article>({release_year})</article>
-                    <article>{media_voto_recensioni}/5</article>
+                    <article>
+                        <Stars vote={media_voto_recensioni} />
+                    </article>
                 </div>
             </Link>
         </div >

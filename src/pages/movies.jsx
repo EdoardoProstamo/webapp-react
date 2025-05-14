@@ -39,7 +39,7 @@ const Movies = () => {
                 <form onSubmit={movieSearch}>
                     <div className="form">
                         <input type="text" name="cerca" value={ricerca} onChange={(event) => setRicerca(event.target.value)} />
-                        <button type="submitt" className="btn">Cerca</button>
+                        <button type="submitt" className="btn"><i className="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                 </form>
             </div>

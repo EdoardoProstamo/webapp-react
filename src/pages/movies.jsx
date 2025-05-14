@@ -6,19 +6,26 @@ const Movies = () => {
 
     const [movies, setMovies] = useState([]);
     // campo di ricerca
-    const [search, setSearch] = useState('');
+    const [ricerca, setRicerca] = useState('');
 
     const url = 'http://127.0.0.1:3001/movies';
 
     function moviesList() {
 
-        axios.get(url)
+        axios.get(url, {
+            params: {
+                ricerca
+            }
+        })
             .then(response => { setMovies(response.data) })
             .catch(err => console.log(err))
     };
 
-    function movieSearch() {
+    function movieSearch(event) {
 
+        event.preventDefault();
+
+        moviesList();
     };
 
     useEffect(moviesList, []);
@@ -26,10 +33,10 @@ const Movies = () => {
 
     return (
         <>
-            <form action="" onSubmit={movieSearch}>
+            <form onSubmit={movieSearch}>
                 <div>
-                    <input type="text" name="cerca" id="" value={search} onChange={(e) => setSearch(e.target.value)} />
-                    <button>Cerca</button>
+                    <input type="text" name="cerca" value={ricerca} onChange={(event) => setRicerca(event.target.value)} />
+                    <button type="submitt">Cerca</button>
                 </div>
             </form>
 

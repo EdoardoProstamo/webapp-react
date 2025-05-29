@@ -20,20 +20,24 @@ const MovieReviews = () => {
 
 
     return <>
-        <div>
-            <img src={reviews.imagePath} alt={reviews.title} />
-            <h2>{reviews.title}</h2>
-            <article>Year: ({reviews.release_year})</article>
-            <article>Genre: {reviews.genre}</article>
-            <article>Director: {reviews.director}</article>
-            <p>{reviews.abstract}</p>
-
-            <hr />
-            <div>
-                <h2>Recensioni:</h2>
-                <Stars vote={reviews.media_voto_recensioni} />
+        <div className="container-review">
+            <div className="container-info">
+                <img src={reviews.imagePath} alt={reviews.title} className="img-review" />
+                <div>
+                    <h2>{reviews.title}</h2>
+                    <article>Year: ({reviews.release_year})</article>
+                    <article>Genre: {reviews.genre}</article>
+                    <article>Director: {reviews.director}</article>
+                    <p>{reviews.abstract}</p>
+                </div>
             </div>
-            {reviews.reviews?.map(review => <Recensioni key={review.id} data={review} />)}
+            <div>
+                <div className="reviews-average-rating">
+                    <h2>Recensioni:</h2>
+                    <Stars vote={reviews.media_voto_recensioni} />
+                </div>
+                {reviews.reviews?.map(review => <Recensioni key={review.id} data={review} />)}
+            </div>
         </div>
     </>
 

@@ -7,6 +7,10 @@
     text-decoration: none;
 }
 
+.hidden {
+    visibility: hidden;
+}
+
 /* HEADER */
 
 nav {
@@ -51,6 +55,44 @@ li a {
     height: 300px;
 }
 
+/* REVIEWS SECTION */
+.img-review {
+    height: 300px;
+    width: 200px;
+}
+
+.container-info {
+    display: flex;
+}
+
+.container-review {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.reviews-average-rating {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.review-name {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.review-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 15px 0 25px;
+    border: 2px solid green;
+}
+
+
+
 .container {
     display: flex;
     gap: 50px;
@@ -58,10 +100,6 @@ li a {
     justify-content: space-between;
     margin: 50px 50px;
 }
-
-/* .container-box {
-    width: 100% / 3;
-} */
 
 .movies {
     width: 200px;

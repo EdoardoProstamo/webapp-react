@@ -38,7 +38,8 @@ const Movies = () => {
 
                 <form onSubmit={movieSearch}>
                     <div className="form">
-                        <input type="text" name="cerca" value={ricerca} onChange={(event) => setRicerca(event.target.value)} />
+                        <label className="hidden">Cerca film</label>
+                        <input type="text" name="cerca" value={ricerca} onChange={(event) => setRicerca(event.target.value)} placeholder="Cerca film" />
                         <button type="submitt" className="btn"><i className="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                 </form>

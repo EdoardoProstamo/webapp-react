@@ -10,10 +10,10 @@ const Box = ({ data }) => {
             <Link to={`/movies/${id}`}>
                 <img className="img" src={imagePath} alt={title} />
                 <div className="box">
-                    <h5>{title}</h5>
+                    <h5 className="title">{title}</h5>
                     <article>{director}</article>
                     <article>({release_year})</article>
-                    <article>
+                    <article className="stars-review">
                         <Stars vote={media_voto_recensioni} />
                     </article>
                 </div>

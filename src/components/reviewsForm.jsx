@@ -12,13 +12,16 @@ const ReviewsForm = () => {
 
         const { nome, value } = e.target;
 
+        let currentValue = value;
+
+        // Se il campo è voto, converto il valore in un numero intero
         if (nome === 'voto') {
-            value = parseInt(value);
+            currentValue = parseInt(value);
         }
 
         setFormData((formData) => ({
             ...formData,
-            [nome]: value,
+            [nome]: currentValue,
         }));
     };
 

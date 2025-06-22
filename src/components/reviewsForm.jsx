@@ -1,29 +1,46 @@
+import axios from "axios";
 import { useState } from "react";
 
-const ReviewsForm = () => {
+// movie_id è l'id del FILM al quale lasciamo la recensione, non l'id della recensione stessa!
+const ReviewsForm = ({ movie_id, refreshMovie }) => {
 
-    const [formData, setFormData] = useState({
-        nome: '',
-        voto: 1,
-        testo: ''
-    });
+    const valoriIniziali = {
+        name: '',
+        vote: 1,
+        text: ''
+    };
+
+    const [formData, setFormData] = useState(valoriIniziali);
 
     const setCampoValue = (e) => {
 
-        const { nome, value } = e.target;
+        const { name, value } = e.target;
 
         let currentValue = value;
 
-        // Se il campo è voto, converto il valore in un numero intero
-        if (nome === 'voto') {
+        // Se il campo è vote, converto il valore in un numero intero
+        if (name === 'vote') {
             currentValue = parseInt(value);
         }
 
         setFormData((formData) => ({
             ...formData,
-            [nome]: currentValue,
+            [name]: currentValue,
         }));
     };
+
+    const invioInformazioni = (e) => {
+
+        e.preventDefault();
+
+        axios.post(`http://127.0.0.1:3001/movies/${movie_id}/reviews`, formData)
+            .then(response => {
+                refreshMovie();
+                setFormData(valoriIniziali);
+            })
+            .catch(err => console.log(err))
+
+    }
 
     return <>
         <div className="card">
@@ -31,21 +48,21 @@ const ReviewsForm = () => {
             <div className="card-header">Lascia una recensione:</div>
             <div className="card-body">
                 {/* form */}
-                <form action="">
+                <form onSubmit={invioInformazioni}>
                     <div className="mb-3">
                         <label htmlFor="review-name" className="form-label">Nome utente</label>
-                        <input type="text" className="form-control" id="review-name" placeholder="Nome utente" value={formData.nome} onChange={setCampoValue} name="nome" />
+                        <input type="text" className="form-control" id="review-name" placeholder="Nome utente" value={formData.name} onChange={setCampoValue} name="name" />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="review-vote" className="form-label">Voto</label>
-                        <input type="number" min={1} max={5} className="form-control" id="review-vote" placeholder="Voto" value={formData.voto} onChange={setCampoValue} name="voto" />
+                        <input type="number" min={1} max={5} className="form-control" id="review-vote" placeholder="Voto" value={formData.vote} onChange={setCampoValue} name="vote" />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="review-text" className="form-label">Inserisci la tua recensione</label>
-                        <textarea className="form-control" id="review-text" rows="3" value={formData.testo} onChange={setCampoValue} name="testo" ></textarea>
+                        <textarea className="form-control" id="review-text" rows="3" value={formData.text} onChange={setCampoValue} name="text" ></textarea>
                     </div>
                     <div className="mb-3">
-                        <button type="submitt" class="btn btn-primary">Aggiungi recensione</button>
+                        <button type="submit" className="btn btn-primary">Aggiungi recensione</button>
                     </div>
                 </form>
             </div>

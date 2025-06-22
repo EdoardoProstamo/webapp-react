@@ -41,7 +41,9 @@ const MovieReviews = () => {
             </div>
         </div>
         <section>
-            <ReviewsForm />
+            {/* movie_id ci aiuta con la chiamata api, facilitando il riconoscimento della pagina in cui siamo tramite la prop id  */}
+            <ReviewsForm movie_id={id} refreshMovie={getReviews} />
+            {/* refreshMovie è la funzione che ci permette di rifare la chiamata al server e aggiorna la variabile di stato che contiene le informazioni del film e delle recensioni: genera un rerander della pagina, il che ci permette di aggiornare le recensioni e la media voto nello stesso istante in cui si invia una nuova recensione */}
         </section>
     </>
 

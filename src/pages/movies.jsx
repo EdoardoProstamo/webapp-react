@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import Box from "../components/box";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import GlobalContext from "../context/GlobalContext";
 
 const Movies = () => {
 
@@ -9,9 +11,13 @@ const Movies = () => {
     // campo di ricerca
     const [ricerca, setRicerca] = useState('');
 
+    const { setIsLoading } = useContext(GlobalContext);
+
     const url = 'http://127.0.0.1:3001/movies';
 
     function moviesList() {
+
+        setIsLoading(true);
 
         axios.get(url, {
             params: {

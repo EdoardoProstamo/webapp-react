@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import Recensioni from "../components/reviewsPage";
 import Stars from "../components/starsIcons";
 import ReviewsForm from "../components/reviewsForm";
+import { useContext } from "react";
+import GlobalContext from "../context/GlobalContext";
 
 const MovieReviews = () => {
     console.log("sto montando recensioni");
@@ -11,11 +13,16 @@ const MovieReviews = () => {
     const { id } = useParams();
     const [reviews, setReviews] = useState({});
 
+    const { setIsLoading } = useContext(GlobalContext);
 
     function getReviews() {
+
+        setIsLoading(true);
+
         axios(`http://127.0.0.1:3001/movies/${id}`)
             .then(response => setReviews(response.data))
             .catch(err => console.log(err))
+            .finally(() => setIsLoading(false))
     };
     useEffect(getReviews, [id]);
 

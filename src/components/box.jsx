@@ -3,11 +3,11 @@ import Stars from "./starsIcons";
 
 const Box = ({ data }) => {
 
-    const { id, director, title, release_year, imagePath, media_voto_recensioni } = data;
+    const { director, title, release_year, imagePath, media_voto_recensioni, slug } = data;
 
     return <>
         <div className="movies">
-            <Link to={`/movies/${id}`}>
+            <Link to={`/movies/${slug}`}>
                 <img className="img" src={imagePath} alt={title} />
                 <div className="box">
                     <h5 className="title">{title}</h5>

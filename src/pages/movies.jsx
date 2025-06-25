@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Box from "../components/box";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Movies = () => {
 
@@ -33,14 +34,21 @@ const Movies = () => {
 
     return (
         <>
-            <div className="search">
-                <h1>Film disponibili</h1>
+            <header className="d-flex justify-content-between align-items-center">
+                <h1 className="mb-3">Film disponibili</h1>
+                <Link className="btn btn-primary" to="/movies/add" alt="Aggiungi un nuovo film">Aggiungi un nuovo film</Link>
+            </header>
 
-                <form onSubmit={movieSearch}>
-                    <div className="form">
-                        <label className="hidden">Cerca film</label>
-                        <input type="text" name="cerca" value={ricerca} onChange={(event) => setRicerca(event.target.value)} placeholder="Cerca film" />
-                        <button type="submitt" className="btn"><i className="fa-solid fa-magnifying-glass"></i></button>
+            <div className="d-flex justifu-content-between">
+                <form className="row g-1" onSubmit={movieSearch}>
+                    <div className="col-auto">
+                        <label className="visually-hidden">Cerca film</label>
+                        <input className="form-control" type="text" name="cerca" value={ricerca} onChange={(event) => setRicerca(event.target.value)} placeholder="Cerca film" />
+                    </div>
+                    <div className="col-auto">
+                        <button type="submitt" className="btn btn-primary mb-3">
+                            <i className="fa-solid fa-magnifying-glass"></i>
+                        </button>
                     </div>
                 </form>
             </div>

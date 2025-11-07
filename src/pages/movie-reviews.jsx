@@ -10,7 +10,7 @@ import GlobalContext from "../context/GlobalContext";
 const MovieReviews = () => {
     console.log("sto montando recensioni");
 
-    const { id } = useParams();
+    const { slug } = useParams();
     const [reviews, setReviews] = useState({});
 
     const { setIsLoading } = useContext(GlobalContext);
@@ -19,12 +19,12 @@ const MovieReviews = () => {
 
         setIsLoading(true);
 
-        axios(`http://127.0.0.1:3001/movies/${id}`)
+        axios(`http://127.0.0.1:3001/movies/${slug}`)
             .then(response => setReviews(response.data))
             .catch(err => console.log(err))
             .finally(() => setIsLoading(false))
     };
-    useEffect(getReviews, [id]);
+    useEffect(getReviews, [slug]);
 
 
     return <>
@@ -49,7 +49,7 @@ const MovieReviews = () => {
         </div>
         <section>
             {/* movie_id ci aiuta con la chiamata api, facilitando il riconoscimento della pagina in cui siamo tramite la prop id  */}
-            <ReviewsForm movie_id={id} refreshMovie={getReviews} />
+            {reviews.slug && <ReviewsForm slug={reviews.slug} refreshMovie={getReviews} />}
             {/* refreshMovie è la funzione che ci permette di rifare la chiamata al server e aggiorna la variabile di stato che contiene le informazioni del film e delle recensioni: genera un rerander della pagina, il che ci permette di aggiornare le recensioni e la media voto nello stesso istante in cui si invia una nuova recensione */}
         </section>
     </>

@@ -18,7 +18,7 @@ function App() {
           <Routes>
             <Route Component={DefaultLayout} >
               <Route path='/' Component={Movies} />
-              <Route path='/movies/:id' Component={MovieReviews} />
+              <Route path='/movies/:slug' Component={MovieReviews} />
               <Route path='/movies/add' Component={addMoviesPage} />
               <Route path='*' Component={Error} />
             </Route>

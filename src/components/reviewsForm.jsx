@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 
 // movie_id è l'id del FILM al quale lasciamo la recensione, non l'id della recensione stessa!
-const ReviewsForm = ({ movie_id, refreshMovie }) => {
+const ReviewsForm = ({ slug, refreshMovie }) => {
 
     const valoriIniziali = {
         name: '',
@@ -33,13 +33,12 @@ const ReviewsForm = ({ movie_id, refreshMovie }) => {
 
         e.preventDefault();
 
-        axios.post(`http://127.0.0.1:3001/movies/${movie_id}/reviews`, formData)
+        axios.post(`http://127.0.0.1:3001/movies/slug/${slug}/reviews`, formData)
             .then(response => {
                 refreshMovie();
                 setFormData(valoriIniziali);
             })
-            .catch(err => console.log(err))
-
+            .catch(err => console.log(err));
     }
 
     return <>

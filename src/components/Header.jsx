@@ -4,7 +4,7 @@ const Header = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
             <div className="container">
-                <NavLink className="navbar-brand" to="/">
+                <NavLink className="navbar-brand text-warning" to="/">
                     IMDb(oolean)
                 </NavLink>
                 <button
@@ -22,14 +22,10 @@ const Header = () => {
                     <ul className="navbar-nav ms-auto">
 
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/">
-                                Home
-                            </NavLink>
+                            <NavLink className="nav-link" to="/">Home</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/movies/add">
-                                Aggiungi Film
-                            </NavLink>
+                            <NavLink className="nav-link" to="/movies/add">Aggiungi Film</NavLink>
                         </li>
 
                     </ul>

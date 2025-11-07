@@ -16,14 +16,13 @@ const AddMoviesPage = () => {
 
     function setCampoValue(e) {
         const value = e.target.type === 'file' ? e.target.files[0] : e.target.value;
-        setFormData((prevFormData) => ({
+        setFormData(prevFormData => ({
             ...prevFormData,
             [e.target.name]: value
         }));
     }
 
     const invioInformazioni = (e) => {
-
         e.preventDefault();
 
         axios.post(`http://127.0.0.1:3001/movies`, formData, {
@@ -31,56 +30,27 @@ const AddMoviesPage = () => {
                 'Content-Type': 'multipart/form-data'
             }
         })
-            .then(response => {
-                setFormData(valoriIniziali);
-            })
-            .catch(err => console.log(err))
+            .then(() => setFormData(valoriIniziali))
+            .catch(err => console.log(err));
     }
 
-    return <>
+    return (
+        <div className="d-flex flex-column align-items-center my-5">
+            <h1 className="text-warning mb-4">Aggiungi un nuovo film</h1>
 
-        <article>
-            <h1>Aggiungi un nuovo film</h1>
-            <section id="add-movie">
-                <form onSubmit={invioInformazioni}>
-                    <div className="mb-3">
-                        <label htmlFor="new-movie-title" className="form-label">Titolo</label>
-                        <input type="text" className="form-control" id="new-movie-title" name="title" placeholder="Inserisci il titolo del film" value={formData.title} onChange={setCampoValue} />
-                    </div>
-
-                    <div className="mb-3">
-                        <label htmlFor="new-movie-director" className="form-label">Regista</label>
-                        <input type="text" className="form-control" id="new-movie-director" name="director" placeholder="Inserisci il nome del regista" value={formData.director} onChange={setCampoValue} />
-                    </div>
-
-                    <div className="mb-3">
-                        <label htmlFor="new-movie-release_year" className="form-label">release_year</label>
-                        <input type="text" className="form-control" id="new-movie-relase_year" name="release_year" placeholder="Inserisci il release_year" value={formData.release_year} onChange={setCampoValue} />
-                    </div>
-
-                    <div className="mb-3">
-                        <label htmlFor="new-movie-genre" className="form-label">genre</label>
-                        <input type="text" className="form-control" id="new-movie-genre" name="genre" placeholder="Inserisci il genre" value={formData.genre} onChange={setCampoValue} />
-                    </div>
-
-                    <div className="mb-3">
-                        <label htmlFor="new-movie-abstract" className="form-label">Trama</label>
-                        <textarea className="form-control" id="new-movie-abstract" rows="3" name="abstract" placeholder="Inserisci la trama del film" value={formData.abstract} onChange={setCampoValue}></textarea>
-                    </div>
-
-                    <div className="mb-3">
-                        <label htmlFor="new-movie-image" className="form-label">Copertina film</label>
-                        <input className="form-control" type="file" id="new-movie-image" name="image" onChange={setCampoValue} />
-                    </div>
-
-                    <div className="mb-3">
-                        <button type="submit" className="btn btn-primary">Aggiungi film</button>
-                    </div>
+            <div className="card bg-light text-dark rounded shadow-sm p-4 w-75">
+                <form className="d-flex flex-column gap-3" onSubmit={invioInformazioni}>
+                    <input type="text" className="form-control" name="title" placeholder="Titolo" value={formData.title} onChange={setCampoValue} />
+                    <input type="text" className="form-control" name="director" placeholder="Regista" value={formData.director} onChange={setCampoValue} />
+                    <input type="text" className="form-control" name="release_year" placeholder="Anno di uscita" value={formData.release_year} onChange={setCampoValue} />
+                    <input type="text" className="form-control" name="genre" placeholder="Genere" value={formData.genre} onChange={setCampoValue} />
+                    <textarea className="form-control" name="abstract" rows="3" placeholder="Trama" value={formData.abstract} onChange={setCampoValue}></textarea>
+                    <input type="file" className="form-control" name="image" onChange={setCampoValue} />
+                    <button type="submit" className="btn btn-warning text-dark w-100">Aggiungi film</button>
                 </form>
-            </section>
-        </article>
-
-    </>
+            </div>
+        </div>
+    );
 };
 
 export default AddMoviesPage;
